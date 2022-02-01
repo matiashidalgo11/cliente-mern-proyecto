@@ -1,0 +1,39 @@
+:root{
+  
+  --main-bg-color: #15202B;
+  --gris2: #2f3848;
+
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* .tarea-enter,
+.proyecto-enter {
+  opacity: 0;
+}
+.tarea-enter-active,
+.proyecto-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.tarea-exit,
+.proyecto-exit {
+  opacity: 1;
+}
+.tarea-exit-active,
+.proyecto-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+} */
