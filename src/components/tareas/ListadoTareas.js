@@ -1,5 +1,5 @@
 import React, {Fragment, useContext} from 'react';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+
 
 //Contexts
 import proyectoContext from "../../context/proyectos/proyectoContext";
