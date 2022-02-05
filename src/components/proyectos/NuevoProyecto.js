@@ -1,6 +1,8 @@
 import React, { useState, Fragment, useContext } from "react";
 import proyectoContext from "../../context/proyectos/proyectoContext";
 
+//Icons
+import {GiCancel} from 'react-icons/gi';
 
 const NuevoProyecto = () => {
 
@@ -45,45 +47,51 @@ const NuevoProyecto = () => {
     }
 
     //Mostrar Formulario
-
     const onClickFormulario = () => {
         mostrarFormulario();
+    }
+
+    const cancelarForm = () => {
+        mostrarFormulario();
+        setProyecto({nombre: ''});
     }
 
     return(
 
         <Fragment>
-            <button
-                type="button"
-                className="btn nuevo-proyecto"
-                onClick={onClickFormulario}
-            >
-                Nuevo Proyecto
-            </button>
+            
 
             {
                 formulario
                 ?
                     (<form className="form-nuevo-proyecto" onSubmit={onSubmitProyecto}>
-
+                    
+                    <GiCancel className="icon-cancel-proyecto" onClick={cancelarForm}/>
                     <input 
                     type="text" 
-                    className=""
+                    className="input-agregar"
                     placeholder="Nombre Proyecto" 
                     name="nombre"
                     value={nombre}
                     onChange={onChangeProyecto}
                     />
     
-                    <input type="submit" className="btn submit" value="Agregar proyecto"/>
+                    <input type="submit" className="btn btn-nuevo-proyecto" value="Agregar proyecto"/>
     
                 </form>)
 
                 :
-                    null
+                <button
+                type="button"
+                className="btn btn-nuevo-proyecto"
+                onClick={onClickFormulario}
+                >
+                Nuevo Proyecto
+                </button>
+
             }
 
-            {errorformulario? <p className="mensaje error">El nombre del proyecto es obligatorio</p> : null}
+            {errorformulario? <p className="error-proyecto">El nombre del proyecto es obligatorio</p> : null}
 
         </Fragment>
     )

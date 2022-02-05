@@ -5,7 +5,11 @@ import alertaContext from '../../../context/alertas/alertaContext';
 import authContext from '../../../context/autenticacion/authContex';
 
 //Style
-import style from './Login.module.css'
+import '../Auth.css';
+
+//Icons
+import {FaUserAlt} from 'react-icons/fa';
+import {FaLock} from 'react-icons/fa';
 
 
 function Login() {
@@ -51,54 +55,57 @@ function Login() {
         //Valida que no haya campos vacios
         if(email.trim() === '' || password.trim() === '') {
             mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+        }else{
+
+             // Pasarlo al action
+            iniciarSesion({email, password});
         }
 
-        // Pasarlo al action
-        iniciarSesion({email, password});
+
     }
 
     return ( 
-        <div className={style.FormLogin}>
+        <div className="form-auth">
             
-            {alerta ? (<div> {alerta.msg} </div> ) : null }
+            {alerta ? (<div className='error-form'> {alerta.msg} </div> ) : null }
 
-            <div className={style.ContainerForm}>
+            <div className="form-container">
                 
                 <h1>Iniciar Sesion</h1>
 
                     <form onSubmit={onSubmit}>
                         
-                        <div className={style.CampoForm}>
-                            <label htmlFor='email'>Email</label>
+                        <div className="camp-form">
+                            <FaUserAlt className='icon-auth'/>
                             <input 
                                 type="email"
                                 id='email'
                                 name='email'
-                                placeholder='Tu Email'
+                                placeholder='Email'
                                 value={email}
                                 onChange={onChange}
                             />
                         </div>
 
-                        <div className={style.CampoForm}>
-                            <label htmlFor='password'>Password</label>
+                        <div className="camp-form">
+                            <FaLock className='icon-auth'/>
                             <input 
                                 type="password"
                                 id='password'
                                 name='password'
-                                placeholder='Tu password'
+                                placeholder='Password'
                                 value={password}
                                 onChange={onChange}
                             />
                         </div>
 
-                        <div className={style.CampoForm}>
-                            <input type="submit" className={style.Btn}/>
-                        </div>
+                        
+                        <button type="submit" className="btn-auth"> Iniciar Sesion </button>
+        
 
                     </form>
 
-                    <Link to={'/nueva-cuenta'} className={style.EnlaceCuenta}>
+                    <Link to={'/nueva-cuenta'} className="link-auth">
                         Obtener Cuenta
                     </Link>
 

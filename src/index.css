@@ -1,8 +1,22 @@
 :root{
   
-  --main-bg-color: #15202B;
+  --main-bg-color: #440E7A;
+  --bg-color-secundario: #24023F;
+  --bg-color-tereciario: #EFF0F1;
+  --bg-btn: #5B3AC9;
+  --bg-form:rgb(221, 217, 217);
   --gris2: #2f3848;
 
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 16px;
 }
 
 body {

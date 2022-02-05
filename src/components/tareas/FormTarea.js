@@ -79,7 +79,7 @@ const FormTarea = () => {
 
 
         //Obtener y filtrar las tareas del proyecto actual
-        obtenerTareas(proyectoActual.id);
+        obtenerTareas(proyectoActual._id);
 
         //reiniciar el form
         guardarTarea({
@@ -108,7 +108,7 @@ const FormTarea = () => {
 
                     <input 
                         type="submit"
-                        className='btn btn-submit'
+                        className='btn btn-agregar-tarea'
                         placeholder='Nombre Tarea...'
                         value={tareaSeleccionada ? 'Editar Tarea' : 'Agregar Tarea'}
                     />
@@ -117,7 +117,7 @@ const FormTarea = () => {
 
             </form>
 
-            {errorTarea ? <p>El nombre de la tarea es obligatorio</p> : null}
+            {errorTarea ? <p className='error-tarea'>El nombre de la tarea es obligatorio</p> : null}
         </div>
     )
 }

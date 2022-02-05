@@ -13,14 +13,18 @@ const proyectoReducer = (state, action) => {
     switch(action.type){
 
         case FORMULARIO_PROYECTO:
+            let form = state.formulario;
             return{
-                ...state, formulario: true
+                ...state, 
+                formulario: form?false:true,
+                errorformulario: false
             }
         
         case OBTENER_PROYECTOS:
             return{
                 ...state, 
-                proyectos : action.payload
+                proyectos : action.payload,
+                proyecto: null
             }
         
         case AGREGAR_PROYECTOS:

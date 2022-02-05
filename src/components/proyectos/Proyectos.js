@@ -1,6 +1,5 @@
 import React, {useContext, useEffect} from "react";
 
-import "./Proyectos.css";
 
 //Components
 import Sidebar from "../layout/Sidebar";

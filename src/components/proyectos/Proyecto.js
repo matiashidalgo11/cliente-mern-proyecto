@@ -6,12 +6,12 @@ import tareaContext from '../../context/tareas/tareaContext';
 
 
 
+const Proyecto = ({proyectoData}) => {
 
-const Proyecto = ({proyecto}) => {
 
     //Obtener el state de proyectos
     const proyectosContext = useContext(proyectoContext);
-    const {proyectoActual} = proyectosContext;
+    const {proyectoActual, proyecto} = proyectosContext;
 
     //Obtener la funcion el contxt de tarea
     const tareasContext = useContext(tareaContext);
@@ -19,7 +19,7 @@ const Proyecto = ({proyecto}) => {
 
     //Funcion para agregar el proyecto actual
     const seleccionarProyecto = id => {
-        
+
         proyectoActual(id); //Fijar un proyecto actual
         obtenerTareas(id); //Filtrar las tareas cuando se de click
     }
@@ -29,10 +29,10 @@ const Proyecto = ({proyecto}) => {
         <li className="item-proyecto">
             <button
                 type='button'
-                className='btn-proyecto'
-                onClick={() => seleccionarProyecto(proyecto._id)}
+                className= {`btn-proyecto ${(proyecto !== null && proyecto[0]._id === proyectoData._id)?' proyecto-activo ' : ''}`}
+                onClick={() => seleccionarProyecto(proyectoData._id)}
             >
-                {proyecto.nombre}
+                {proyectoData.nombre}
             </button>
         </li>
     )

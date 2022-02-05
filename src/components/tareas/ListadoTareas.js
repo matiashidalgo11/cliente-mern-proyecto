@@ -34,17 +34,17 @@ const ListadoTareas = () => {
 
         <Fragment>
 
-            <h2>Proyecto: {proyectoActual.nombre}</h2>
+            <h2 className='nombre-proyecto'>{proyectoActual.nombre}</h2>
 
             <ul className='listado-tareas'>
                 {tareasProyecto.length === 0
-                    ? (<li className='tarea'><p>No hay tareas</p></li>)
+                    ? (<p>Actualmente no hay tareas</p>)
                     :  tareasProyecto.map(tarea => (<Tarea key={tarea._id} classNames='tarea' tarea={tarea} /> ))
 
                 }
             </ul>
 
-            <button type='button' onClick={onClickEliminar}>Eliminar Proyecto &times;</button>
+            <button type='button' className='btn-eliminar-proyecto' onClick={onClickEliminar}>Eliminar Proyecto &times;</button>
             
         </Fragment> 
     )

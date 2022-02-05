@@ -36,7 +36,7 @@ const TareaState = props => {
         try{
 
             const resultado = await clienteAxios.get('/api/tareas', { params: { proyecto }});
-            console.log(resultado);
+            /* console.log(resultado); */
 
             dispatch(
                 {
@@ -56,10 +56,10 @@ const TareaState = props => {
         try{
 
             const resultado = await clienteAxios.post('/api/tareas', tarea);
-            console.log(resultado);
+            /* console.log(resultado); */
             dispatch({
                 type: AGREGAR_TAREA,
-                payload: tarea
+                payload: resultado.data.tarea
             });
 
         } catch (error) {
@@ -104,12 +104,12 @@ const TareaState = props => {
         
         try{
 
-            
+            tarea.finalizado = (tarea.estado === true) ? Date.now() : null;
             const resultado = await clienteAxios.put(`/api/tareas/${tarea._id}`, tarea);
             dispatch({
                 type: ACTUALIZAR_TAREA,
                 payload: resultado.data.tarea
-            })
+            });
 
         } catch (error) {
             console.log(error)

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect} from "react";
 import Proyecto from "./Proyecto";
 
 //Context
@@ -6,6 +6,7 @@ import proyectoContext from "../../context/proyectos/proyectoContext";
 import alertaContext from "../../context/alertas/alertaContext";
 
 const ListadoProyecto = () => {
+
 
     //Extraer proyectos de state inicial
     const proyectosContext = useContext(proyectoContext);
@@ -37,7 +38,7 @@ const ListadoProyecto = () => {
             {proyectos.map(proyecto => (
             <Proyecto
                 key={proyecto._id}
-                proyecto={proyecto}
+                proyectoData={proyecto}
             />
             ))}
         </ul>

@@ -4,6 +4,11 @@ import React, {useContext} from 'react';
 import tareaContext from '../../context/tareas/tareaContext';
 import proyectoContext from '../../context/proyectos/proyectoContext';
 
+//icons
+import {RiDeleteBin6Fill,RiEditBoxLine} from 'react-icons/ri';
+import {AiFillCheckCircle, AiFillCloseCircle} from 'react-icons/ai';
+
+
 const Tarea = ({tarea}) => {
 
     //Obtener la funcion el context de tarea
@@ -17,11 +22,15 @@ const Tarea = ({tarea}) => {
     //Array destructuring para extraer el proyecto actual
     const [proyectoActual] = proyecto;
 
+    //Convertir las fechas a string
+    let inicio = new Date(tarea.creado).toLocaleString().split(' ')[0];
+    let final = (tarea.finalizado === null)? '-' :  new Date(tarea.finalizado).toLocaleString().split(' ')[0];
+
     // Funcion que se ejecuta cuando el usuario presiona el btn de eliminar tarea
     const tareaEliminar = (id) => {
 
         eliminarTarea(id, proyectoActual._id);
-        obtenerTareas(proyectoActual.id);
+        obtenerTareas(proyectoActual._id);
     }
 
     //Funcion que modifica 
@@ -40,43 +49,63 @@ const Tarea = ({tarea}) => {
 
     return(
         <li className='tarea'>
-            <p>{tarea.nombre}</p>
 
-            <div className='estado'>
-                {tarea.estado 
-                ? 
-                    (<button
-                        type='button'
-                        className='completo'
-                        onClick={() => cambiarEstado(tarea)}
-                    >
-                        Completo
-                    </button>)
-                :
-                (<button
-                    type='button'
-                    className='incompleto'
-                    onClick={() => cambiarEstado(tarea)}
-                >
-                    Incompleto
-                </button>)
             
-                }
-            </div>
+            <div className='tarea-primario'>
+                <p className='nombre-tarea'>{tarea.nombre}</p>
 
-            <div className='acciones'>
-                <button
-                type='button'
-                className='btn-atrea'
-                onClick={() => seleccionarTarea(tarea)}
-                >Editar</button>
+                <div className='funcionalidad-tarea'>
+                    <div className='estado'>
+                        {tarea.estado 
+                        ? 
+                            (<button
+                                type='button'
+                                className='completo'
+                                onClick={() => cambiarEstado(tarea)}
+                            >
+                                <AiFillCheckCircle/>
+                                <p className='estado-text'>Completo</p>
+                            </button>)
+                        :
+                            (<button
+                                type='button'
+                                className='incompleto'
+                                onClick={() => cambiarEstado(tarea)}
+                            >
+                                <AiFillCloseCircle/>
+                                <p className='estado-text'>Incompleto</p>
+                            </button>)
+                    
+                        }
+                    </div>
 
-                <button
-                type='button'
-                className='btn-atrea'
-                onClick={() => tareaEliminar(tarea._id)}
-                >Eliminar</button>
+                    <div className='acciones'>
+                        <button
+                        type='button'
+                        className='btn-tarea edit-tarea'
+                        onClick={() => seleccionarTarea(tarea)}
+                        >
+                            <RiEditBoxLine/>
+                        </button>
+
+                        <button
+                        type='button'
+                        className='btn-tarea eliminar-tarea'
+                        onClick={() => tareaEliminar(tarea._id)}
+                        >
+                            <RiDeleteBin6Fill/>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>   
+
+            <div className='fechas'>
+                        <p className='fecha-inicio'>Inicio: {inicio}</p>
+                        <p className='fecha-finalizado'>Final: {final}</p>
             </div>
+            
         </li>
     )
 }

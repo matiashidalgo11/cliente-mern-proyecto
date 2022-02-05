@@ -5,7 +5,13 @@ import alertaContext from '../../../context/alertas/alertaContext';
 import authContext from '../../../context/autenticacion/authContex';
 
 //Style
-import style from './NuevaCuenta.module.css';
+import '../Auth.css';
+
+//Icons
+import {BiRepeat} from 'react-icons/bi'; //confirm
+import {FaUserTie} from 'react-icons/fa'; //name
+import {RiLockPasswordFill} from 'react-icons/ri'; //pass
+import {MdAlternateEmail} from 'react-icons/md' //email
 
 
 const NuevaCuenta = (props) => {
@@ -76,56 +82,56 @@ const NuevaCuenta = (props) => {
     }
 
     return ( 
-        <div className={style.FormRegistro}>
+        <div className='form-auth'>
 
-            {alerta ? (<div> {alerta.msg} </div> ) : null }
+            {alerta ? (<div className='error-form'> {alerta.msg} </div> ) : null }
             
-        <div className={style.ContainerForm}>
+        <div className='form-container'>
             
             <h1>Nueva Cuenta</h1>
 
                 <form onSubmit={onSubmit}>
 
-                    <div className={style.CampoForm}>
-                        <label htmlFor='name'>Nombre</label>
+                    <div className='camp-form'>
+                        <FaUserTie className='icon-auth'/>
                         <input 
                             type="name"
                             id='name'
                             name='nombre'
-                            placeholder='Tu Nombre'
+                            placeholder='Nombre'
                             value={nombre}
                             onChange={onChange}
                         />
                     </div>
                     
-                    <div className={style.CampoForm}>
-                        <label htmlFor='email'>Email</label>
+                    <div className='camp-form'>
+                        <MdAlternateEmail className='icon-auth'/>
                         <input 
                             type="email"
                             id='email'
                             name='email'
-                            placeholder='Tu Email'
+                            placeholder='Email'
                             value={email}
                             onChange={onChange}
                         />
                     </div>
 
-                    <div className={style.CampoForm}>
-                        <label htmlFor='password'>Password</label>
+                    <div className='camp-form'>
+                        <RiLockPasswordFill className='icon-auth'/>
                         <input 
                             type="password"
                             id='password'
                             name='password'
-                            placeholder='Tu password'
+                            placeholder='Password'
                             value={password}
                             onChange={onChange}
                         />
                     </div>
 
-                    <div className={style.CampoForm}>
-                        <label htmlFor='confirm'>Confirm Password</label>
+                    <div className='camp-form'>
+                        <BiRepeat className='icon-auth'/>
                         <input 
-                            type="confirm"
+                            type="password"
                             id='confirm'
                             name='confirm'
                             placeholder='Repeat Password'
@@ -135,13 +141,12 @@ const NuevaCuenta = (props) => {
                     </div>
 
 
-                    <div className={style.CampoForm}>
-                        <input type="submit" className={style.Btn}/>
-                    </div>
+                    <button type="submit" className="btn-auth"> Registrarse </button>
+
 
                 </form>
 
-                <Link to={'/'} className={style.EnlaceCuenta}>
+                <Link to={'/'} className="link-auth">
                     Ya tienes cuenta? Click aqui.
                 </Link>
 
