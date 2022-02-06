@@ -16,29 +16,31 @@ const Proyectos = () => {
     const AuthContext = useContext(authContext);
     const {usuarioAutenticado} = AuthContext;
 
+
     useEffect(() => {
         usuarioAutenticado();
         //eslint-disable-next-line
     }, []);
+
 
     return(
 
         <div className="contenedor-app">
 
             <Sidebar/>
-            
+
             <div className="seccion-main">
-                
+
                 <Barra/>
 
-                <main>
+                <main className="container-main">
 
                     <FormTarea/>
 
                     <div className="contenedor-tareas">
 
                         <ListadoTareas/>
-                        
+
                     </div>
 
                 </main>

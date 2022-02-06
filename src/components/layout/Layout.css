@@ -1,3 +1,4 @@
+
 .contenedor-app{
     display: flex;
 }
@@ -17,6 +18,7 @@
     color: white;
     border-right: 5px solid black;
 }
+
 
 .side-bar h1{
     margin: 20px 0;
@@ -140,6 +142,11 @@
     display: flex;
     justify-content: space-between;
     padding: 20px 10px;
+}
+
+.app-header .icon-menu-mobile{
+    width: 50px;
+    height: 50px;
 }
 
 .app-header .nombre-usuario{
@@ -316,3 +323,64 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.icon-menu-mobile{
+    display: none;
+}
+
+/* Mobile */
+@media (max-width:700px){
+
+    .icon-menu-mobile{
+        display: initial;
+    }
+
+    /*Container Principal */
+
+    .contenedor-app{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Barra */
+
+    .app-header{
+        width: 100%;
+        position: relative;
+    }
+
+    /* Sidebar*/
+
+    .side-bar{
+        position: absolute;
+        bottom: -90px;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        min-height: 100vh;
+        z-index: 2;
+    }
+
+    .sombreado{
+        position: absolute;
+        right: 0;
+        bottom: -90px;
+        background-color: rgba(0, 0, 0, 0.548);
+        width: 50%;
+        height: 100%;
+        z-index: 2;
+        
+    }
+
+
+    /*Formulario tarea*/
+    .seccion-main{
+        width: 100%;
+    }
+
+    .disabled{
+        display: none;
+    }
+}
+
