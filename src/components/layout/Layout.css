@@ -379,6 +379,19 @@
         width: 100%;
     }
 
+    /* Form agregar Tarea*/
+
+    .input-tarea, .btn-agregar-tarea{
+        width: 80%;
+    }
+    
+
+    /* Tarea*/
+
+    .tarea{
+        width: 95%;
+    }
+
     .disabled{
         display: none;
     }
